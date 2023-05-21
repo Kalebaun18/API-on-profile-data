@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Welcome</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding-top: 100px;
+    }
+    
+    h1 {
+      color: #4285f4;
+      font-size: 32px;
+    }
+    
+    .success-message {
+      color: #4285f4;
+      font-size: 24px;
+      margin-bottom: 20px;
+      animation: fadeIn 1s ease-in-out;
+    }
+    
+    .success-icon {
+      width: 100px;
+      height: 100px;
+      margin-bottom: 30px;
+      animation: scaleIn 1s ease-in-out;
+    }
+    
+    .btn {
+      display: inline-block;
+      background-color: #4285f4;
+      color: #fff;
+      text-decoration: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+      opacity: 0;
+      animation: fadeIn 1s ease-in-out 2s forwards;
+    }
+    
+    .btn:hover {
+      background-color: #3367d6;
+    }
+    
+    .game-iframe {
+      width: 100%;
+      height: 500px;
+      border: none;
+      margin-top: 20px;
+    }
+    
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+    
+    @keyframes scaleIn {
+      from {
+        transform: scale(0);
+      }
+      to {
+        transform: scale(1);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="welcomeContainer">
+    <h1 class="success-message">Welcome, you have successfully signed in with Google!</h1>
+    <a class="btn" href="chrome://dino/" id="continueBtn">Continue</a>
+  </div>
+  
+  <div id="gameContainer" style="display: none;">
+    <iframe class="game-iframe" src="chrome://dino/"></iframe>
+  </div>
+
+  <script>
+    var welcomeContainer = document.getElementById("welcomeContainer");
+    var gameContainer = document.getElementById("gameContainer");
+    var continueBtn = document.getElementById("continueBtn");
+
+    continueBtn.addEventListener("click", function() {
+      welcomeContainer.style.display = "none";
+      gameContainer.style.display = "block";
+    });
+  </script>
+</body>
+</html>
